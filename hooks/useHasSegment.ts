@@ -1,21 +1,15 @@
-"use client";
-
 import { useMemo } from "react";
 import { usePathname } from "next/navigation";
 
-export function useHasSegment(segment: string) {
+export default function useHasSegment(segment: string) {
   const pathname = usePathname();
 
-  const result = useMemo(
-    () => [
-      (() => {
-        const splitPath = pathname.split("/");
-        return splitPath.includes(segment);
-      })(),
-      pathname,
-    ],
-    [pathname]
-  );
+  const hasSegment = useMemo(() => {
+    const splitPath = pathname.split("/");
+    const isCurrentSegment = splitPath.includes(segment);
 
-  return result;
+    return [isCurrentSegment, pathname];
+  }, [pathname]);
+
+  return hasSegment;
 }
