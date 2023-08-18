@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 
-import { Link, Button } from "@/components";
+import { Link, Button } from "@/components/private";
 import { LINKS } from "./constant";
 
 const styles = {
