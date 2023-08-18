@@ -1,4 +1,4 @@
-import { Text } from "@/components/private";
+import { Text } from "@/components/personal";
 import React from "react";
 
 export default function IntroduceSection() {

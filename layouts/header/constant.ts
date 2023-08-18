@@ -4,8 +4,8 @@ export const LINKS = [
     href: "/",
   },
   {
-    text: "about",
-    href: "/about",
+    text: "components",
+    href: "/components",
   },
   {
     text: "contact-us",

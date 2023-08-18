@@ -9,9 +9,18 @@ interface IMainLayout {
 
 const styles = {
   root: `
-    h-screen w-screen
+    //? Display
+    flex flex-col justify-between
+
+    //? Size
+    min-h-screen w-screen
   `,
   main: `
+    //? classes
+    wrapper
+    
+    //? Display
+    flex-1
     overflow-x-hidden
   `,
 };

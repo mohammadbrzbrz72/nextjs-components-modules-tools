@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 
-import { Link, Button } from "@/components/private";
+import { Link, Button } from "@/components/personal";
 import { LINKS } from "./constant";
 
 const styles = {
@@ -34,7 +34,7 @@ export default function HeaderDesktopSize() {
       <div className={styles.rightSide}>
         <Link href="/">
           <Image
-            src={"icons/header-logo.svg"}
+            src={"/icons/header-logo.svg"}
             width={80}
             height={70}
             alt="bird logo"

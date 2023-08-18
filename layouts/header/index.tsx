@@ -15,6 +15,7 @@ const DynamicHeaderMobileSize = dynamic(() => import("./HeaderMobileSize"), {
 const styles = {
   root: `
     bg-slate-50
+    select-none
   `,
   wrapper: `
     wrapper
