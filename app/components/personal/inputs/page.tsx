@@ -46,12 +46,12 @@ function Inputs() {
   const methods = useFormContext();
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-3">
       <Input
         label="Full Name"
+        name="full_name"
         methods={methods}
         placeholder="Jack Martin"
-        name="full_name"
         validation={{
           minLength: {
             value: 6,
@@ -61,13 +61,43 @@ function Inputs() {
       />
       <Input
         label="Father's Name"
+        name="fathers_name"
         methods={methods}
         placeholder="Father's Name"
-        name="fathers_name"
         validation={{
           required: {
             value: true,
             message: "Please fill the father's name",
+          },
+        }}
+      />
+      <Input
+        type="email"
+        label="Email"
+        name="email"
+        methods={methods}
+        placeholder="something@gmail.com"
+        validation={{
+          required: {
+            value: true,
+            message: "Please fill the email",
+          },
+        }}
+      />
+      <Input
+        type="number"
+        label="Age"
+        name="age"
+        methods={methods}
+        placeholder="30"
+        validation={{
+          required: {
+            value: true,
+            message: "Please fill the age input",
+          },
+          min: {
+            value: 16,
+            message: "At least 16 years old",
           },
         }}
       />
