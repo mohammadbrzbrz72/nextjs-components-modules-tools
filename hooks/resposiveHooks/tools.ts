@@ -1,6 +1,6 @@
 import type { IMediaParameters } from "./interfaces";
 
-export const isNullish = (data: any) => [null, undefined].includes(data);
+export const isNullish = (data: unknown) => data == null;
 
 export function matchMediaParameters({ min, max }: IMediaParameters) {
   const hasMinNumber = !isNullish(min);
