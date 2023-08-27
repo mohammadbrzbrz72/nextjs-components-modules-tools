@@ -3,6 +3,12 @@
 import React from "react";
 import { Input } from "@/components/personal";
 import { useForm, FormProvider, useFormContext } from "react-hook-form";
+import type { SubmitHandler } from "react-hook-form";
+
+interface IFormInput {
+  full_name: string;
+  fathers_name: string;
+}
 
 const styles = {
   submitButton: `
@@ -13,9 +19,10 @@ const styles = {
     text-sm font-bold
   `,
 };
+
 export default function InputsPage() {
-  const methods = useForm();
-  const onSubmit = (data: any) => console.log(data);
+  const methods = useForm<IFormInput>();
+  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
   // console.log(methods.formState.isDirty); // make sure formState is read before render to enable the Proxy
 
   return (
@@ -44,6 +51,12 @@ function Inputs() {
         methods={methods}
         placeholder="Father's Name"
         name="fathers_name"
+        validation={{
+          required: {
+            value: true,
+            message: "Please fill father's name",
+          },
+        }}
       />
     </div>
   );

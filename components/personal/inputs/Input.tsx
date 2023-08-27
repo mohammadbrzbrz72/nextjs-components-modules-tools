@@ -1,7 +1,12 @@
 "use client";
 
 import clsx from "clsx";
-import type { UseFormReturn, FieldValues } from "react-hook-form";
+import type {
+  UseFormReturn,
+  FieldValues,
+  RegisterOptions,
+} from "react-hook-form";
+
 interface IInput {
   label: string;
   placeholder: string;
@@ -12,6 +17,7 @@ interface IInput {
     input: string;
   }>;
   methods: UseFormReturn<FieldValues, any, undefined>;
+  validation?: RegisterOptions<FieldValues, string>;
 }
 
 const styles = {
@@ -28,13 +34,20 @@ const styles = {
   `,
 };
 
-export function Input({ name, classes, label, methods, placeholder }: IInput) {
+export function Input({
+  name,
+  classes,
+  label,
+  methods,
+  placeholder,
+  validation,
+}: IInput) {
   return (
     <div className={clsx(styles.root, classes?.root, " ")}>
       <label className={clsx(styles.label, classes?.label)}>{label}</label>
       <input
         className={clsx(styles.input, classes?.input)}
-        {...methods.register(name)}
+        {...methods.register(name, validation)}
         placeholder={placeholder}
       />
     </div>
