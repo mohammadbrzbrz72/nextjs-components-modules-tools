@@ -50,6 +50,9 @@ export function Input({
         {...methods.register(name, validation)}
         placeholder={placeholder}
       />
+      <span className="text-[10px] text-red-600 min-h-[10px]">
+        {(methods?.formState?.errors[name]?.message as string) ?? ""}
+      </span>
     </div>
   );
 }

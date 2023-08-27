@@ -20,8 +20,15 @@ const styles = {
   `,
 };
 
+const defaultValues: IFormInput = {
+  full_name: "Jack",
+  fathers_name: "",
+};
+
 export default function InputsPage() {
-  const methods = useForm<IFormInput>();
+  const methods = useForm<IFormInput>({
+    defaultValues,
+  });
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
   // console.log(methods.formState.isDirty); // make sure formState is read before render to enable the Proxy
 
@@ -45,6 +52,12 @@ function Inputs() {
         methods={methods}
         placeholder="Jack Martin"
         name="full_name"
+        validation={{
+          minLength: {
+            value: 6,
+            message: "Insert 6 characters at least",
+          },
+        }}
       />
       <Input
         label="Father's Name"
@@ -54,7 +67,7 @@ function Inputs() {
         validation={{
           required: {
             value: true,
-            message: "Please fill father's name",
+            message: "Please fill the father's name",
           },
         }}
       />
