@@ -8,6 +8,7 @@ import type {
 } from "react-hook-form";
 
 interface IInput {
+  type?: "text" | "number" | "email";
   label: string;
   placeholder: string;
   name: string;
@@ -35,6 +36,7 @@ const styles = {
 };
 
 export function Input({
+  type = "text",
   name,
   classes,
   label,
@@ -46,6 +48,7 @@ export function Input({
     <div className={clsx(styles.root, classes?.root, " ")}>
       <label className={clsx(styles.label, classes?.label)}>{label}</label>
       <input
+        type={type}
         className={clsx(styles.input, classes?.input)}
         {...methods.register(name, validation)}
         placeholder={placeholder}
